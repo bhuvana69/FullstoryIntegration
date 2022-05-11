@@ -1,7 +1,7 @@
 <template>
-  <div>
-    <canvas id="ApplicationMetrics"></canvas>
-  </div>
+  <div style="float:right; height:20vh; width:50vw">
+      <canvas id="ApplicationMetrics"></canvas>
+    </div>
 </template>
 
 <script>
@@ -16,7 +16,7 @@ export default {
       }
     },
     mounted() {
-        const ctx = document.getElementById('ApplicationMetrics');
+        const ctx = document.getElementById('ApplicationMetrics')
         new Chart(ctx, this.appMetricsData);
       }
 }

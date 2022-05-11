@@ -21,12 +21,13 @@ export const appMetricsData = {
     },
     options: {
         responsive: true,
+        maintainAspectRatio: false,
         lineTension: 1,
         scales: {
             yAxes: [
                 {
                     ticks: {
-                        beginAtZero: true,
+                        beginAtZero: false,
                         padding: 25
                     }
                 }
