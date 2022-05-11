@@ -1,8 +1,4 @@
 <template>
-  <select v-model="selectedValue" @change="onChange($event)">
-    <option disabled value="">Please select one</option>
-    <option v-for="item in userData" :key="item.id" :value="item.id">{{item.name}}</option>
-  </select>
   <div class="position-absolute top-50 start-50 translate-middle" style="float:right; height:20vh; width:50vw">
       <canvas id="ApplicationMetrics"></canvas>
     </div>
