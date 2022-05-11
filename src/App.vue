@@ -8,7 +8,6 @@
 <script>
 import AppMetrics from './components/AppMetrics.vue'
 import DropDownDemo from './components/dropdown.vue'
-import DropDownDemo from './components/TileInformation.vue'
 
 export default {
   name: 'App',
