@@ -246,7 +246,7 @@ export default {
                   {
                       label: "Average load time per page",
                       data: this.loadTimechartData,
-                      backgroundColor: "rgba(71, 183,132,.5)",
+                      backgroundColor: "rgba(72, 183,132,.5)",
                       borderColor: "#47b784",
                       borderWidth: 3
                   }
