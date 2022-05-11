@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div class="row" style="margin:10px">
-      <div class="col-sm-12 btn btn-info"> Select a User to view the Metrics !! </div>
+      <div class="col-sm-12 btn btn-info"><h1> UX Metrics Dashboard</h1></div>
     </div>
     <div class=" row col-sm-12">
       <div class="col-sm-4"></div>

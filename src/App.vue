@@ -1,9 +1,11 @@
 <template>
-    <ion-header>
+  <ion-header style="margin-bottom: 10px;">
     <DropDownDemo />
-     <ion-button> <router-link to="/" style="text-decoration: none; color:#fff">User Trends</router-link> </ion-button>
-     <ion-button> <router-link to="/about" style="text-decoration: none; color:#fff">Session Replay</router-link></ion-button>
+    <div style="padding-bottom: 10px">
+      <ion-button> <router-link to="/home" style="text-decoration: none; color:#fff">User Trends</router-link> </ion-button>
+      <ion-button> <router-link to="/about" style="text-decoration: none; color:#fff">Session Replay</router-link></ion-button>
      <!--<ion-button><router-link :to="{ name: 'Cart', params: { payment_method: 'cod' } }">test</router-link></ion-button>-->
+    </div>
     </ion-header>
   <router-view/>
 </template>
