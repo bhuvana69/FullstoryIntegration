@@ -1,31 +1,43 @@
 <template>
-  <div class="position-absolute top-50 start-50 translate-middle" style="float:right; height:20vh; width:50vw">
-      <canvas id="ApplicationMetrics"></canvas>
+  <div id="app">
+    <div class="row" style="margin:10px">
+      <div class="col-sm-12 btn btn-info"> Select a User to view the Metrics !! </div>
     </div>
+    <div class=" row col-sm-12">
+      <div class="col-sm-4"></div>
+      <div class="col-sm-4">
+        <select class="form-control" @change="changevalue($event)">
+          <option value="" selected disabled>Please Select a User </option>
+          <option v-for="data in userData" :value="data.id" :key="data.id">{{ data.name }}</option>
+        </select>
+      </div>
+      <div class="col-sm-4" ></div>
+    </div>
+    <br>
+    <br>
+    <p v-if="seen">
+      <span>Showing Results For: <b> {{ selectedvalue  }}</b>
+      </span>
+    </p>
+  </div>
 </template>
-
-
-
 <script>
-import Chart from 'chart.js'
-import appMetricsData from '../appMetricsData.js'
-
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-vue/dist/bootstrap-vue.css'
+import appMetricsData from "@/appMetricsData";
 export default {
-  name: 'AppMetrics',
+  name: 'DropDownDemo',
   data() {
-      return {
-        appMetricsData: appMetricsData,
-        visible: true,
-        userData: [],
-        selectedValue: null,
-        eventsData:null,
-        sessionData:null
-      }
-    },
-    mounted() {
-        const ctx = document.getElementById('ApplicationMetrics')
-        new Chart(ctx, this.appMetricsData);
-      },
+    return {
+      seen: false,
+      appMetricsData: appMetricsData,
+      visible: true,
+      userData: [],
+      selectedvalue: null,
+      eventsData:null,
+      sessionData:null
+    }
+  },
   methods: {
     async getData(userId) {
       let url = "https://export.fullstory.com/api/v1/export/userEvents?uid=" + userId;
@@ -131,15 +143,17 @@ export default {
         console.log("Error", error);
       }
     },
-    onChange(event) {
-      const id= event.target.value;
+    changevalue(event) {
+      this.seen = true;
+      this.selectedvalue = event.target.options[event.target.options.selectedIndex].text
+      const id = event.target.value;
       console.log(id)
       this.getData(id);
       this.getSessionUrl(id);
     }
   },
-  created() {
-    this.getUserData("");
+    created() {
+      this.getUserData("");
+    }
   }
-}
 </script>
