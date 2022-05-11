@@ -1,0 +1,52 @@
+{
+    "sessions": [
+        {
+            "userId": "6330590741127168",
+            "sessionId": "5004898346196992",
+            "createdTime": "1652261358",
+            "fsUrl": "https://app.fullstory.com/ui/o-1A7REV-na1/session/6330590741127168:5004898346196992"
+        },
+        {
+            "userId": "5011740867158016",
+            "sessionId": "5048193598873600",
+            "createdTime": "1652177213",
+            "fsUrl": "https://app.fullstory.com/ui/o-1A7REV-na1/session/5011740867158016:5048193598873600"
+        },
+        {
+            "userId": "5011740867158016",
+            "sessionId": "5144111931187200",
+            "createdTime": "1652094185",
+            "fsUrl": "https://app.fullstory.com/ui/o-1A7REV-na1/session/5011740867158016:5144111931187200"
+        },
+        {
+            "userId": "5011740867158016",
+            "sessionId": "6545754413326336",
+            "createdTime": "1652091880",
+            "fsUrl": "https://app.fullstory.com/ui/o-1A7REV-na1/session/5011740867158016:6545754413326336"
+        },
+        {
+            "userId": "6330590741127168",
+            "sessionId": "6365748638769152",
+            "createdTime": "1652083893",
+            "fsUrl": "https://app.fullstory.com/ui/o-1A7REV-na1/session/6330590741127168:6365748638769152"
+        },
+        {
+            "userId": "6330590741127168",
+            "sessionId": "5636897977655296",
+            "createdTime": "1652081624",
+            "fsUrl": "https://app.fullstory.com/ui/o-1A7REV-na1/session/6330590741127168:5636897977655296"
+        },
+        {
+            "userId": "5011740867158016",
+            "sessionId": "5410709644500992",
+            "createdTime": "1652076178",
+            "fsUrl": "https://app.fullstory.com/ui/o-1A7REV-na1/session/5011740867158016:5410709644500992"
+        },
+        {
+            "userId": "6330590741127168",
+            "sessionId": "5394207260270592",
+            "createdTime": "1652073427",
+            "fsUrl": "https://app.fullstory.com/ui/o-1A7REV-na1/session/6330590741127168:5394207260270592"
+        }
+    ]
+}

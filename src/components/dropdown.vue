@@ -55,7 +55,6 @@ export default {
           }
         });
         this.eventsData = await response.json();
-        console.log(this.eventsData);
       } catch (error) {
         console.log(error);
       }
@@ -76,7 +75,6 @@ export default {
           }
         });
         this.sessionData = await response.json();
-        console.log(this.sessionData);
       } catch (error) {
         console.log(error);
       }
@@ -138,7 +136,6 @@ export default {
         });
         this.response = await response.json();
         this.userData = JSON.parse(JSON.stringify(this.response.results));
-        console.log(this.userData);
       } catch (error) {
         console.log("Error", error);
       }
@@ -147,7 +144,6 @@ export default {
       this.seen = true;
       this.selectedvalue = event.target.options[event.target.options.selectedIndex].text
       const id = event.target.value;
-      console.log(id)
       this.getData(id);
       this.getSessionUrl(id);
     }
