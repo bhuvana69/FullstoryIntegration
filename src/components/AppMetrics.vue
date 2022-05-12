@@ -5,13 +5,13 @@
 </template>
 
 <script>
-import usersData from "../userData.json";
+// import usersData from "../userData.json";
 import Chart from 'chart.js'
 
 export default {
   data() {
     return {
-      users: usersData,
+      users: null,
       detailsTab: 0,
       timelineTab: 0,
       qualitySummaryTab: 0,
@@ -47,9 +47,37 @@ export default {
       screenTabLoadCount: 0,
       screenTabTotalLoadTime: 0,
       screenTabAvgLoadTime: 0,
+      loading:false,
     };
   },
   mounted: function () {
+    this.loading=false;
+
+
+    let url = "https://export.fullstory.com/api/v1/export/userEvents?uid="+this.userId;
+   fetch(url, {
+          method: 'GET',
+          mode: "cors",
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Basic by0xQTdSRVYtbmExL2pheWFzaHJlZS5zZXR0dUBnZW5lc3lzLmNvbTpC2CZ+TTicYlayLWKscPNXGVwgaDq75goz1fin6c3D1C4u/TK96N7G',
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Headers': '*',
+            'Access-Control-Allow-Methods': 'GET, POST, OPTIONS, PUT, PATCH, DELETE',
+            'Access-Control-Allow-Credentials': true,
+          }
+        }).then(res =>{
+          if(!res.ok){
+              // create error instance with HTTP status text
+        const error = new Error(res.statusText);
+        error.json = res.json();
+        throw error;
+          }
+          return res.json();
+        }).then(json=>{
+          this.users = json;
+          console.log(json);
+    
       var detailsTab = 0;
       var timelineTab = 0;
       var qualitySummaryTab = 0;
@@ -268,6 +296,54 @@ export default {
               }
           }
       });
+      });
     },
+    methods:{
+        constructJson(searchQuery) {
+      let queryArray = [];
+      let firstquery = {
+        "type": "EXACT",
+        "fields": [
+          "state"
+        ],
+        "values": [
+          "active",
+          "inactive"
+        ]
+      };
+      queryArray.push(firstquery);
+      if (searchQuery) {
+        let query2 = {
+          "type": "QUERY_STRING",
+          "fields": [
+            "name",
+            "email",
+            "title",
+            "department"
+          ],
+          "value": searchQuery
+        }
+        queryArray.push(query2);
+      }
+      let json = {
+        "pageSize": 25,
+        "pageNumber": 1,
+        "query": queryArray,
+        "sortOrder": "ASC",
+        "sortBy": "name",
+        "expand": [
+          "images",
+          "authorization",
+          "team"
+        ],
+        "enforcePermissions": true
+      }
+      return json;
+    },
+    },
+    created(){
+       console.log('state', this.$store);
+      this.userId=this.$store.getters.userId;
+    }
 };
 </script>

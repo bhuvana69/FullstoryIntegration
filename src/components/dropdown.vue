@@ -106,7 +106,7 @@ export default {
         queryArray.push(query2);
       }
       let json = {
-        "pageSize": 25,
+        "pageSize": 30,
         "pageNumber": 1,
         "query": queryArray,
         "sortOrder": "ASC",
@@ -126,7 +126,7 @@ export default {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
-            'Authorization': 'bearer X7fk4eUy8xbWB7RxYGbHxTld_s8v_mOB--pCeBpdXD1FL7cvg-XksosXlj_nniUgNIsVcm3J0hJgOWcb2C21nQ',
+            'Authorization': 'bearer nfcX6jplyurUZ-U05u6pJSWZZhKdN02uEu4FbZuzwdnHLNB8RtAbz3K39S2OuADkiZKtBk7OJ_4uGGOO482aAg',
             'Access-Control-Allow-Origin': '*',
             'Access-Control-Allow-Headers': '*',
             'Access-Control-Allow-Methods': 'GET, POST, OPTIONS, PUT, PATCH, DELETE',
@@ -144,6 +144,9 @@ export default {
       this.seen = true;
       this.selectedvalue = event.target.options[event.target.options.selectedIndex].text
       const id = event.target.value;
+      this.$router.push({name:'Home'}); 
+      this.$router.push({name:'About'}); 
+      this.$store.commit('UPDATE_USERID', id);
       this.getData(id);
       this.getSessionUrl(id);
     }
