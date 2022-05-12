@@ -5,7 +5,7 @@ import AboutPage from "@/views/AboutPage.vue";
 
 const routes = [
   {
-    path: "/",
+    path: "/home",
     name: "Home",
     component: HomePage,
   },
